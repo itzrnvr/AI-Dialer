@@ -2,19 +2,34 @@ import React from 'react'
 
 const PageSidebar = () => {
   return (
-    <div id="docs-sidebar" class="h-screen hs-overlay hs-overlay-open:translate-x-0 -translate-x-full transition-all duration-300 transform hidden  top-0 left-0 bottom-0 z-[60] w-48 bg-white border-r border-gray-200 pt-7 pb-10 overflow-y-auto scrollbar-y lg:block lg:translate-x-0 lg:right-auto lg:bottom-0 dark:scrollbar-y dark:bg-gray-800 dark:border-gray-700">
-  <nav class="hs-accordion-group p-6 w-full flex flex-col items-center flex-wrap">
-    <ul class="space-y-1.5">
+    <div id="docs-sidebar" className="hidden  top-0 left-0 bottom-0 z-[10] w-72 bg-white border-r border-gray-200 pt-4 pb-10 overflow-y-auto scrollbar-y lg:block lg:translate-x-0 lg:right-auto lg:bottom-0 dark:scrollbar-y dark:bg-gray-800 dark:border-gray-700">
+  <nav className="hs-accordion-group w-full flex flex-col items-center flex-wrap">
+    <ul className="space-y-3">
       <li>
-        <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-slate-700 rounded-md hover:bg-gray-100 dark:bg-gray-900 dark:text-white" href="javascript:;">
-          <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
-            <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
-          </svg>
-          PageSidebar
+        <a className="flex items-center gap-x-3.5 py-2 mb-2 px-2 text-sm text-slate-700 rounded-md  dark:bg-gray-900 dark:text-white" href="javascript:;">
+            <input type="text" className="py-2.5 px-4 block w-full outline-none border-gray-200 focus:bg-[#F6F6F6] hover:bg-[#F6F6F6]  rounded-md text-sm  dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400" placeholder="search..."/>
+        </a>
+        <hr/>
+      </li>
+      
+      <li>
+        <a className="bg-[#F7F7F7] mx-1 flex items-center gap-x-3.5 py-2.5 px-2.5 text-sm text-slate-700 rounded-md hover:bg-[#F7F7F7]  dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300" href="javascript:;">
+            <span className='ri-folder-2-line ri-lg'></span>
+            Campaign
+        </a>
+      </li>
+
+      <li>
+        <a className="bg-[#F7F7F7]  mx-1 flex items-center gap-x-3.5 py-2.5 px-2.5 text-sm text-slate-700 rounded-md hover:bg-[#F7F7F7]  dark:hover:bg-gray-900 dark:text-slate-400 dark:hover:text-slate-300" href="javascript:;">
+            <span className='ri-folder-2-line ri-lg'></span>
+            # Example Campaign
         </a>
       </li>
     </ul>
+    <button type="button" className="hover:bg-blue-200 active:bg-blue-300 bg-blue-100 border hover:border-slate-400  mt-6 py-2.5 mb-2 px-10 pr-8 inline-flex justify-center items-center gap-2 rounded-md    text-sm">
+      <span className='ri-add-line ri-lg'></span>
+      New Campaign
+    </button>
   </nav>
 </div>
   )

@@ -5,6 +5,7 @@ import './index.css'
 import store from './state/store.js'
 import('preline')
 import { Provider } from 'react-redux';
+import 'remixicon/fonts/remixicon.css'
 import {
 	BrowserRouter,
 	Routes,
