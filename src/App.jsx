@@ -1,11 +1,14 @@
 import React from 'react'
-import Auth from './pages/auth/auth'
+import { Outlet } from "react-router-dom";
+import Auth from './pages/Auth'
+import Sidebar from './layouts/Sidebar';
 
 const App = () => {
   return (
-    <div>
-      <Auth onAuthReq={(email, password) => console.log(email, password)}/>
-    </div>
+    <>
+      <Sidebar/>
+      <Outlet/>
+    </>
   )
 }
 
