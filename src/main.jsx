@@ -6,6 +6,7 @@ import store from './state/store.js'
 import('preline')
 import { Provider } from 'react-redux';
 import 'remixicon/fonts/remixicon.css'
+import 'react-tooltip/dist/react-tooltip.css'
 import {
 	BrowserRouter,
 	Routes,
