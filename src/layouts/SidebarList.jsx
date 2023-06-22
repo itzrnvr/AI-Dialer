@@ -19,7 +19,7 @@ const SidebarList = () => {
         {
             icon: 'ri-user-line',
             route: 'accounts',
-            tooltip: 'Accounts'
+            tooltip: 'accounts'
         },
         {
             icon: 'ri-tools-line',
@@ -44,6 +44,15 @@ const SidebarList = () => {
             </li>
         )
     })}
+
+    <li 
+    data-tooltip-id="my-tooltip" 
+    data-tooltip-content={"logout"} 
+    data-tooltip-place="right"
+    className='bottom-8 absolute'>
+      <a className="ri-logout-circle-r-line ri-xl py-3 flex  flex-col px-3 text-slate-600 rounded-md hover:bg-gray-200 dark:bg-gray-900 dark:text-white" href="javascript:;">
+      </a>
+    </li> 
   </ul>
   )
 }

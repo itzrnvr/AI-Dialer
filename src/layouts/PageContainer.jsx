@@ -10,7 +10,6 @@ const PageContainer = ({children, enablePageSidebar}) => {
         <Tooltip id="my-tooltip" className='z-[200]' />
         <PageSidebar/>
           <main className='h-screen w-full flex flex-col'>
-
             {children}
           </main>
     
