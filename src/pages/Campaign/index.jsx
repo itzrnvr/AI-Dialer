@@ -4,6 +4,7 @@ import Header from '../../layouts/Header'
 import HeaderCampaign from './components/HeaderCampaign'
 import ModifierDialing from './components/modifiers/ModifierDialing'
 import ModiferAddCampaign from './components/modifiers/ModiferAddCampaign'
+import Dialog from '../../layouts/Dialog'
 
 const Campaign = () => {
   return (
@@ -20,6 +21,7 @@ const Campaign = () => {
 
         <ModifierDialing/>
         <ModiferAddCampaign/>
+        <Dialog/>
     </PageContainer>
   )
 }

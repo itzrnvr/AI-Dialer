@@ -103,33 +103,39 @@ const PageSidebar = ({
   addNewText = "Add New",
   onElementClick = () => ''
 }) => {
+
+  const mItemListWithCategories = itemListWithCategories.map((item) => {
+    return {
+      category: item.category,
+      children: item.children.map(child => {
+        return {
+          ...child,
+          key: getRandomID()
+        }
+      })
+    }
+  })
+
   const [searchQuery, setSearchQuery] = useState('')
   const [active, setActive] = useState(null)
   const [items, setItems] = useState(itemList)
-  const [categorisedItems, setCategorisedItems] = useState(
-    itemListWithCategories.map((item) => {
-      return {
-        category: item.category,
-        children: item.children.map(child => {
-          return {
-            ...child,
-            key: getRandomID()
-          }
-        })
-      }
-    })
-  )
+  const [categorisedItems, setCategorisedItems] = useState(mItemListWithCategories)
 
 
   const filterBySearch = (query) => {
     // Create copy of item list
-    let updatedList = [...itemList];
+    let updatedList = [...mItemListWithCategories];
     // Include all elements which includes the search query
-    updatedList = updatedList.filter((item) => {
-      return item.name.toLowerCase().indexOf(query.toLowerCase()) !== -1;
+    updatedList = updatedList.map((item) => {
+      return {
+        category: item.category,
+        children: item.children.filter(child => {
+          return child.name.toLowerCase().indexOf(query.toLowerCase()) !== -1;
+        })
+      }
     });
     // Trigger render with updated values
-    setItems(updatedList);
+    setCategorisedItems(updatedList);
   };
 
   useEffect(() => {

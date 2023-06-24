@@ -1,21 +1,17 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import DropdownItem from './DropdownItem'
 
 const Dropdown = ({
     placeholder = "dropDown",
+    currentSelection = "ITEM",
     data = [
         {
-            label: "Campaign Name",
+            label: "Item One",
             'hasDivider': false,
             'id': 0
         },
         {
-            label: "Bo",
-            'hasDivider': false,
-            'id': 1
-        },
-        {
-            label: "Campaign Name",
+            label: "Create",
             'hasDivider': true,
             'id': 2
         },
@@ -32,25 +28,20 @@ const Dropdown = ({
     )
 }) => {
 
-    const [state, setState] = useState(data[0].label)
-
     const elementList = []
 
     data.forEach((dat, index) => {
         elementList.push(
-            child(dat, (id, val) => {
-                setState(val)
-            }, index)
+            child(dat, index)
         )
     })
-
-
+    
   return (
     <>
         <label htmlFor="hs-leading-icon" className="block text-sm font-medium mb-2 dark:text-white">{placeholder}</label>
         <div className="hs-dropdown relative inline-flex">
             <button id="hs-dropdown-default" type="button" className="hs-dropdown-toggle py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800">
-                {state}
+                {currentSelection}
                 <svg className="hs-dropdown-open:rotate-180 w-2.5 h-2.5 text-gray-600" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M2 5L8.16086 10.6869C8.35239 10.8637 8.64761 10.8637 8.83914 10.6869L15 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                 </svg>
