@@ -18,7 +18,7 @@ const HeaderCampaign = () => {
             </div>
           </div>
           <div className='mt-6 flex'>
-            <OutlineButton className={"mx-2.5"} remixIcon={"ri-add-line"} text={"Add New"}/>
+            <OutlineButton dataHsOverlay={"#addCampaignModifier"} className={"mx-2.5"} remixIcon={"ri-add-line"} text={"Add New"}/>
             <OutlineButton dataHsOverlay={"#dialingModifer"} variant={'primary'} remixIcon={"ri-phone-line"} text={"Dialing Mode"}/>
           </div>
           

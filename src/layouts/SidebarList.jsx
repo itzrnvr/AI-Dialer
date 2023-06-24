@@ -16,6 +16,11 @@ const SidebarList = () => {
             route: 'campaign',
             tooltip: 'campaign'
         },
+                {
+            icon: 'ri-robot-line',
+            route: 'autosystem',
+            tooltip: 'manage auto presets'
+        },
         {
             icon: 'ri-user-line',
             route: 'accounts',
@@ -25,7 +30,7 @@ const SidebarList = () => {
             icon: 'ri-tools-line',
             route: 'settings',
             tooltip: 'settings'
-        }
+        },
     ])
 
   return (
