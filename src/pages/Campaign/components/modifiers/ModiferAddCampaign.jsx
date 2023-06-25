@@ -41,15 +41,15 @@ const ModiferAddCampaign = ({
   const [currentCategory, setCurrentCategory] = useState(categories[0].label)
 
   function createNewCategory(name){
-    setCategories([ ...categories, {
+    setCategories([{
       label: name,
       hasDivider: false,
       id: getRandomID()
-    }])
+    }, ...categories])
   }
 
   useEffect(()=> {
-    setCurrentCategory(categories[categories.length - 1].label)
+    setCurrentCategory(categories[0].label)
   }, [categories])
 
   function createNewCampaign(){
@@ -101,7 +101,7 @@ const ModiferAddCampaign = ({
       </ModifierContainer>
       <ModfierFooter>
         <OutlineButton dataHsOverlay={"#addCampaignModifier"} remixIcon='ri-close-line' text='Cancel'/>
-        <OutlineButton dataHsOverlay={"#addCampaignModifier"} onClick={()=> createNewCampaign()} variant={"primaryStrong"} remixIcon='ri-add-line' text='Create'/>
+        <OutlineButton disabled={!(campaignName.length >= 3)} dataHsOverlay={"#addCampaignModifier"} onClick={()=> createNewCampaign()} variant={"primaryStrong"} remixIcon='ri-add-line' text='Create'/>
       </ModfierFooter>
     </Modifier>
     <AddCategoryDialog onCreate={(name)=> createNewCategory(name)} />

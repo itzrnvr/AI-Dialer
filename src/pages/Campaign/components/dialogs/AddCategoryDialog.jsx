@@ -15,6 +15,7 @@ const AddCategoryDialog = (
     pDataHsOverlay={"#addCampaignModifier"}
     nDataHsOverlay={"#addCampaignModifier"}
     pOnclick={()=> onCreate(categoryName)}
+    pDisabled={!(categoryName.length >= 3)}
     >
         <div className='w-[30rem]'>
             <SimpleTextInput
