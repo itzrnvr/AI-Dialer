@@ -5,6 +5,7 @@ import HeaderCampaign from './components/HeaderCampaign'
 import ModifierDialing from './components/modifiers/ModifierDialing'
 import ModiferAddCampaign from './components/modifiers/ModiferAddCampaign'
 import Dialog from '../../layouts/Dialog'
+import AddCategoryDialog from './components/dialogs/AddCategoryDialog'
 
 const Campaign = () => {
   return (
@@ -20,8 +21,7 @@ const Campaign = () => {
         </div>
 
         <ModifierDialing/>
-        <ModiferAddCampaign/>
-        <Dialog/>
+        <ModiferAddCampaign onCreateNewCampaign = {(newCampaignData) => console.log(newCampaignData)}/>
     </PageContainer>
   )
 }

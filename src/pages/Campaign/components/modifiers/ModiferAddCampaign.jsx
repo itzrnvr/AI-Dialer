@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Modifier from '../../../../layouts/Modifier'
 import ModfierFooter from '../../../../layouts/Modifier/components/ModfierFooter'
 import ModifierHeader from '../../../../layouts/Modifier/components/ModifierHeader'
@@ -8,8 +8,12 @@ import ElementList from '../../../../components/ElementList'
 import SimpleTextInput from '../../../../components/Inputs/SimpleTextInput'
 import Dropdown from '../../../../components/Inputs/Dropdown'
 import DropdownItem from '../../../../components/Inputs/DropdownItem'
+import AddCategoryDialog from '../dialogs/AddCategoryDialog'
+import getRandomID from '../../../../utils/getRandomID'
 
-const ModiferAddCampaign = () => {
+const ModiferAddCampaign = ({
+  onCreateNewCampaign,
+}) => {
   const data = [
       {
           label: "Campaign Name",
@@ -21,23 +25,43 @@ const ModiferAddCampaign = () => {
 
   const DropDownData = [
       {
-          label: "Campaign Name",
+          label: "Active",
           'hasDivider': false,
-          'id': 0
+          'id': getRandomID(),
       },
       {
-          label: "Create Category",
-          'hasDivider': true,
-          'id': 2
-      },
+        label: "Expired",
+        'hasDivider': false,
+        'id': getRandomID(),
+    },
   ]
 
   const [campaignName, setCampaignName] = useState('')
-  const [category, setCategory] = useState(DropDownData[0].label)
-  const [isNewCategoryInputVisible, setNewCategoryInputVisible] = useState(false)
+  const [categories, setCategories] = useState(DropDownData)
+  const [currentCategory, setCurrentCategory] = useState(categories[0].label)
+
+  function createNewCategory(name){
+    setCategories([ ...categories, {
+      label: name,
+      hasDivider: false,
+      id: getRandomID()
+    }])
+  }
+
+  useEffect(()=> {
+    setCurrentCategory(categories[categories.length - 1].label)
+  }, [categories])
+
+  function createNewCampaign(){
+    onCreateNewCampaign({
+      campaignName: campaignName,
+      category: currentCategory
+    })
+  }
 
   return (
-    <Modifier id="addCampaignModifier">
+    <>
+      <Modifier id="addCampaignModifier">
       <ModifierHeader title='New Campaign'/>
       <ModifierContainer>
         
@@ -51,35 +75,37 @@ const ModiferAddCampaign = () => {
       />
       
       <Dropdown
+        actionItems={[
+          <DropdownItem 
+                dataHsOverlay={`#addCategoryDialog`}
+                label={`Create Category`} 
+                hasDivider={true} 
+            />
+        ]}
         placeholder='Select Category'
-        data = {DropDownData}
-        currentSelection={category}
+        data = {categories}
+        currentSelection={currentCategory}
         child= { (item, index) => (
             <DropdownItem 
-                dataHsOverlay={item.id == 2 && `#hs-vertically-centered-modal`}
                 label={item.label} 
-                hasDivider={item.hasDivider}
+                hasDivider={item.hasDivider} 
                 id={item.id}
                 onClick={(id, label) => {
-                    setCategory(label)
+                  setCurrentCategory(label)
                 }}
             />
         )}
         />
-
-        <SimpleTextInput 
-          label={"Create New Category"}
-          placeholder="New Category"
-        />
-          
       </div>
 
       </ModifierContainer>
       <ModfierFooter>
-        <OutlineButton  remixIcon='ri-close-line' text='Cancel'/>
-        <OutlineButton variant={"primaryStrong"} remixIcon='ri-add-line' text='Create'/>
+        <OutlineButton dataHsOverlay={"#addCampaignModifier"} remixIcon='ri-close-line' text='Cancel'/>
+        <OutlineButton dataHsOverlay={"#addCampaignModifier"} onClick={()=> createNewCampaign()} variant={"primaryStrong"} remixIcon='ri-add-line' text='Create'/>
       </ModfierFooter>
     </Modifier>
+    <AddCategoryDialog onCreate={(name)=> createNewCategory(name)} />
+    </>
   )
 }
 

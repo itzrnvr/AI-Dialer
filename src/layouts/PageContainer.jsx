@@ -14,7 +14,7 @@ const PageContainer = ({children,
   return (
     <div className='ml-20 h-screen  flex  bg-[rgb(248,249,250)]'>
         <Tooltip id="my-tooltip" className='z-[200]' />
-        <PageSidebar addNewClickDataHsOverlay={sideBarAddNewDataHsOverlay} addNewText={sideBarAddNewText}/>
+        <PageSidebar itemListWithCategories={sideBarData} addNewClickDataHsOverlay={sideBarAddNewDataHsOverlay} addNewText={sideBarAddNewText}/>
           <main className='h-screen w-full flex flex-col'>
             {children}
           </main>
