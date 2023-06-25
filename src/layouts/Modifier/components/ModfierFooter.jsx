@@ -8,10 +8,10 @@ const ModfierFooter = ({
     <div
       className='
       flex-none
-      h-16
+      h-24
       '
     >
-      <div className='flex w-full justify-end pr-6 space-x-4'>
+      <div className='border-t flex w-full justify-end pr-6 items-center h-full pb-2 space-x-4'>
        {children}
       </div>
 
