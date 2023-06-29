@@ -8,7 +8,7 @@ import InputHeader from './InputHeader'
 const HeaderCampaign = () => {
   return (
     <Header>
-      <div className='px-8 flex space-y-4 flex-col h-full'>
+      <div className='px-4 flex space-y-6 flex-col h-full'>
 
         <div className='flex justify-between'>
           <div className='flex mt-8 ml-2'>
@@ -23,9 +23,9 @@ const HeaderCampaign = () => {
           </div>
           
         </div>
-        <div className='py-4'>
+        {/* <div className='py-4'>
           <InputHeader/>
-        </div>
+        </div> */}
         
       </div>
     </Header>

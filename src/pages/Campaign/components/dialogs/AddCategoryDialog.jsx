@@ -6,6 +6,8 @@ const AddCategoryDialog = (
     {onCreate}
 ) => {
     const [categoryName, setCategoryName] = useState('')
+
+
   return (
     <Dialog 
     id="addCategoryDialog" 

@@ -9,7 +9,7 @@ const Dialog = ({
     title = "Dialog", 
     pDataHsOverlay, nDataHsOverlay,
     pText = "Positive", nText = 'Negative',
-    pOnclick = () => '', nOnclick = () => '',
+    pOnclick, nOnclick,
     pDisabled = false, nDisabled = false
 }) => {
   return (
@@ -34,8 +34,8 @@ const Dialog = ({
             </div>}
             {footer ? footer : <div className="flex justify-end items-center gap-x-2 py-3 px-4 border-t dark:border-gray-700">
             {  footerItems ? footerItems : <>
-                    <OutlineButton text={nText} disabled={nDisabled} dataHsOverlay= {nDataHsOverlay ? nDataHsOverlay : `#${id}`} onClick={()=> nOnclick()} variant='smallOutlined'/>
-                    <OutlineButton text={pText} disabled={pDisabled} dataHsOverlay= {nDataHsOverlay ? pDataHsOverlay : `#${id}`} onClick={()=> nOnclick()} variant='smallPrimaryStrong'/>
+                    <OutlineButton text={nText} disabled={nDisabled} dataHsOverlay= {nDataHsOverlay ? nDataHsOverlay : `#${id}`} onClick={nOnclick} variant='smallOutlined'/>
+                    <OutlineButton text={pText} disabled={pDisabled} dataHsOverlay= {nDataHsOverlay ? pDataHsOverlay : `#${id}`} onClick={pOnclick} variant='smallPrimaryStrong'/>
                 </> }
             </div>}
             </div>

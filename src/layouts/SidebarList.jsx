@@ -23,8 +23,13 @@ const SidebarList = () => {
         },
         {
             icon: 'ri-user-line',
-            route: 'accounts',
-            tooltip: 'accounts'
+            route: 'manageusers',
+            tooltip: 'manage users'
+        },
+        {
+            icon: 'ri-newspaper-line',
+            route: 'logs',
+            tooltip: 'logs'
         },
         {
             icon: 'ri-tools-line',

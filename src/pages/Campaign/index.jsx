@@ -6,6 +6,7 @@ import ModifierDialing from './components/modifiers/ModifierDialing'
 import ModiferAddCampaign from './components/modifiers/ModiferAddCampaign'
 import Dialog from '../../layouts/Dialog'
 import AddCategoryDialog from './components/dialogs/AddCategoryDialog'
+import TableView from '../../components/TableView'
 
 const Campaign = () => {
   return (
@@ -15,8 +16,8 @@ const Campaign = () => {
     sideBarAddNewDataHsOverlay={"#addCampaignModifier"}
     >
         <HeaderCampaign/>
-        <div className='h-full flex justify-center items-center'>
-          Lead Tables Shows Here, only admins are allowed to import
+        <div className='h-full mt-4 flex flex-col relative'>
+          <TableView/>
           
         </div>
 
